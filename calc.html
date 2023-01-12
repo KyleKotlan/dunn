@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Calculators</title>
+  <script type="text/javascript">
+
+  function bfcalc1()
+
+  {
+
+  var thickness = document.form1.thickness.value;
+
+  var wide = document.form1.width.value;
+
+  var length = document.form1.length.value;
+
+  var perk =document.form1.perk.value;
+
+  var bf = (thickness*wide/12);
+
+  var bfl = (bf*length);
+
+  var price = (perk*bfl/1000);
+
+  var pricelf =(price/length);
+
+
+  document.form1.bf.value = (bfl.toFixed(2)+" Board Feet Total");
+
+  document.form1.total.value = ("$"+price.toFixed(2)+" Each $"+pricelf.toFixed(2)+"Per Foot");
+
+  }
+
+  function cm_calc()
+
+  {
+
+  var cube_bag = document.form2.cube_bag.value;
+
+  var thickness = document.form2.thickness.value;
+
+  var length = document.form2.length.value;
+
+  var wide = document.form2.wide.value;
+
+  var thick_to_foot = (thickness/12);
+
+  var sqft = (length*wide);
+
+  var cube_feet = (sqft*thick_to_foot);
+
+  var bag = (cube_feet/cube_bag);
+
+  var cube_yard = (cube_feet/27);
+
+  document.form2.squarefeet.value = (sqft.toFixed(2));
+
+  document.form2.cubefeet.value = (cube_feet.toFixed(2));
+
+  document.form2.cubeyard.value = (cube_yard.toFixed(2));
+
+  document.form2.bags.value = (bag.toFixed(2));
+
+  }
+
+  </script>
+</head>
+<body>
+  <table align="center" border="6">
+    <tr>
+      <td valign="top">
+        <b>* Concrete Calculator *</b>
+        <form name="form2" id="form2">
+          <input name="cube_bag" id="cube_bag" size="5" type="text"
+          value=".45"> Cubic Feet per bag (.45 on 60LBs)<br>
+          <input name="thickness" id="thickness" size="5" type=
+          "text"> Thickness of concrete slab in inches<br>
+          <input name="length" id="length" size="5" type="text">
+          Length of Concrete slab in feet<br>
+          <input name="wide" id="wide" size="5" type="text"> Width
+          of Concrete slab in feet<br>
+          <br>
+          <input name="squarefeet" id="square_feet" size="10" type=
+          "text" readonly> Total Square Footage<br>
+          <input name="cubefeet" id="cube_feet" size="10" type=
+          "text" readonly> Total Cubic Feet<br>
+          <input name="cubeyard" id="cube_yard" size="10" type=
+          "text" readonly> Total Cubic Yard<br>
+          <br>
+          <input name="bags" id="bags" size="10" type="text"
+          readonly> Number of bags needed<br>
+          <input type="button" name="button1" value="calculate"
+          onclick="cm_calc()"> <input type="reset" value=
+          "clear"><br>
+        </form>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top">
+        <b>* Board Footage Calculator *</b>
+        <form name="form1" id="form1" type="text">
+          <input name="thickness" id="thickness" type="text" size=
+          "5"> Thickness in inches<br>
+          <input name="wide" id="width" type="text" size="5"> Width
+          in inches<br>
+          <input name="length" id="length" type="text" size="5">
+          Length in feet<br>
+          <input name="perk" id="perk" type="text" size="5"> Price
+          Per Thousand<br>
+          <br>
+          <br>
+          <input name="bf" id="bf" type="text" size="35" readonly
+          ><br>
+          <input name="total" id="total" type="text" size="35"
+          readonly><br>
+          <input type="button" name="button1" value="Calculate"
+          onclick="bfcalc1()"> <input type="reset" value="clear">
+        </form>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
